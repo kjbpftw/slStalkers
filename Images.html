@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  
+  $.getJSON("https://opendata.utah.gov/resource/qq96-tqdz.json", function(result){
+       $.each(result, function(imageurl){
+       var imgcheck = imgurl.width;    
+
+if (imgcheck==0) {
+  alert("You have a zero size image");
+} else { 
+       $("#images").append('<img src='+this.imageurl+'large><br>');
+        }
+        });
+    });
+    
+      $.getJSON("https://opendata.utah.gov/resource/e9sx-v2gz.json", function(result){
+       $.each(result, function(imageurl){
+       console.log(result);
+       $("#images").append('<img src='+this.imageurl+'large><br>');
+        });
+    });
+  });
+  
+  
+  
+</script>
+</head>
+<body>
+
+<h2>SL Gang Stalkers</h2>
+
+
+<div id="images">
+</div>
+
+</body>
+</html>
+
