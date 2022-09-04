@@ -8,7 +8,7 @@ $(document).ready(function(){
   $.getJSON("https://opendata.utah.gov/resource/qq96-tqdz.json", function(result){
        $.each(result, function(imageurl){
        var imgcheck = imgurl.width;    
-console.log(this);
+console.log("checking width", imgcheck);
 if (imgcheck==240) {
   console.log('no image')
 } else { 
