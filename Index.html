@@ -10,9 +10,9 @@ $(document).ready(function(){
        var imgcheck = this.imageurl;    
 console.log("checking width", imgcheck);
 if (imgcheck){
-  console.log('no image');
+  console.log(' image found');$("#images").append('<img src='+this.imageurl+'large><br>');
 } else { 
-       $("#images").append('<img src='+this.imageurl+'large><br>');
+       console.log("no image");
         }
         });
     });
