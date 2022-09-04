@@ -18,9 +18,12 @@ if (imgcheck){
     });
     
       $.getJSON("https://opendata.utah.gov/resource/e9sx-v2gz.json", function(result){
-       $.each(result, function(imageurl){ 
-       console.log(result);
-       $("#images").append('<img src='+this.imageurl+'large><br>');
+       $.each(result, function(imageurl){ var imgcheck = this.imageurl;  
+       if (imgcheck){
+  console.log(' image found');$("#images").append('<img src='+this.imageurl+'large><br>');
+} else { 
+       console.log("no image");
+        }
         });
     });
   });
