@@ -7,7 +7,7 @@ $(document).ready(function(){
   eruda.init();
   $.getJSON("https://opendata.utah.gov/resource/qq96-tqdz.json", function(result){
        $.each(result, function(imageurl){
-       var imgcheck = imageurl.width;    
+       var imgcheck = this.imageurl.width;    
 console.log("checking width", imgcheck);
 if (imgcheck==240) {
   console.log('no image');
@@ -18,9 +18,11 @@ if (imgcheck==240) {
     });
     
       $.getJSON("https://opendata.utah.gov/resource/e9sx-v2gz.json", function(result){
-       $.each(result, function(imageurl){
-       console.log(result);
-       $("#images").append('<img src='+this.imageurl+'large><br>');
+       $.each(result, function(imageurl){ var imgcheck = this.imageurl.width;    
+console.log("checking width", imgcheck);
+if (imgcheck==240) {
+       console.log(result);}else{
+       $("#images").append('<img src='+this.imageurl+'large><br>');}
         });
     });
   });
