@@ -12,6 +12,8 @@ console.log("checking width", imgcheck.width);
 if (imgcheck){
   console.log(' image found');
   imageCount++;
+    $(".info").empty();
+    (".info").append(imageCount);
   $("#images").append('<img src='+this.imageurl+'large><br>');
 } else { 
        console.log("no image");
@@ -23,6 +25,8 @@ if (imgcheck){
        $.each(result, function(imageurl){ var imgcheck = this.imageurl;  
        if (imgcheck){
        imageCount++;
+$(".info").empty();
+    (".info").append(imageCount);
   console.log(' image found');$("#images").append('<img src='+this.imageurl+'large><br>');
 } else { 
        console.log("no image");
@@ -31,14 +35,14 @@ if (imgcheck){
     });
   });
   
-  $(".info").append(imageCount)
+
   
 </script>
 </head>
 <body>
 
 <h2>SL Gang Stalkers</h2>
-<h3 class="info">Image Count: </h3>
+<h3>Image Count:<span class="info"></span>  </h3>
 
 
 <div id="images">
