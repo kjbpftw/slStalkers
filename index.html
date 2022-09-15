@@ -4,13 +4,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-  
+  var imageCount =0;
   $.getJSON("https://opendata.utah.gov/resource/qq96-tqdz.json", function(result){
        $.each(result, function(imageurl){
        var imgcheck = this.imageurl;    
 console.log("checking width", imgcheck.width);
 if (imgcheck){
-  console.log(' image found');$("#images").append('<img src='+this.imageurl+'large><br>');
+  console.log(' image found');
+  imageCount++;
+  $("#images").append('<img src='+this.imageurl+'large><br>');
 } else { 
        console.log("no image");
         }
@@ -20,6 +22,7 @@ if (imgcheck){
       $.getJSON("https://opendata.utah.gov/resource/e9sx-v2gz.json", function(result){
        $.each(result, function(imageurl){ var imgcheck = this.imageurl;  
        if (imgcheck){
+       imageCount++;
   console.log(' image found');$("#images").append('<img src='+this.imageurl+'large><br>');
 } else { 
        console.log("no image");
@@ -28,13 +31,14 @@ if (imgcheck){
     });
   });
   
-  
+  $(".info").append(imageCount)
   
 </script>
 </head>
 <body>
 
 <h2>SL Gang Stalkers</h2>
+<h3 class="info">Image Count: </h3>
 
 
 <div id="images">
